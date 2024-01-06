@@ -1,26 +1,35 @@
 {
-  "name": "",
+  "name": "rentanything",
   "private": true,
   "sideEffects": false,
   "type": "module",
   "scripts": {
+    "prebuild": "npm run setup",
     "build": "remix build",
     "dev": "remix dev --manual",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "remix-serve ./build/index.js",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "docker": "docker compose up -d",
+    "setup": "prisma generate && prisma migrate deploy && prisma db seed"
   },
   "dependencies": {
+    "@prisma/client": "^5.7.1",
     "@remix-run/css-bundle": "^2.4.1",
     "@remix-run/node": "^2.4.1",
     "@remix-run/react": "^2.4.1",
     "@remix-run/serve": "^2.4.1",
+    "cloudinary": "^1.41.1",
     "isbot": "^3.6.8",
+    "leaflet": "^1.9.4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-leaflet": "^4.2.1",
+    "tiny-invariant": "^1.3.1"
   },
   "devDependencies": {
     "@remix-run/dev": "^2.4.1",
+    "@types/leaflet": "^1.9.8",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.7.4",
@@ -31,9 +40,15 @@
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "typescript": "^5.1.6"
+    "prisma": "^5.7.1",
+    "tailwindcss": "^3.4.1",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
   },
   "engines": {
     "node": ">=18.0.0"
+  },
+  "prisma": {
+    "seed": "npx tsx prisma/seed.ts"
   }
 }
