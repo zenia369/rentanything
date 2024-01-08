@@ -1,17 +1,44 @@
 import { useForm, useFieldList, conform } from "@conform-to/react";
 import { getFieldsetConstraint, parse } from "@conform-to/zod";
-import { ActionFunctionArgs, json, redirect } from "@remix-run/node";
+import {
+  ActionFunctionArgs,
+  json,
+  redirect,
+  unstable_parseMultipartFormData as parseMultipartFormData,
+  unstable_createMemoryUploadHandler as createMemoryUploadHandler,
+  unstable_composeUploadHandlers as composeUploadHandlers,
+} from "@remix-run/node";
 import { Form, useActionData } from "@remix-run/react";
 import { IoMdSave } from "react-icons/io";
-import Input, { ErrorList } from "~/components/Input";
+import { UploadApiResponse } from "cloudinary";
+import Input, { ErrorList, inputStyles } from "~/components/Input";
 import useIsSubmitting from "~/hooks/useIsSubmitting";
 import { createMarker } from "~/models/map.server";
-import { CreateRecordSchema } from "~/utils/schema";
+import { CreateRecordSchema, MAX_UPLOAD_SIZE } from "~/utils/schema";
 import { transformCrateMarkerDTO } from "~/utils/transfrom";
 import regions from "~/assets/regions.json";
+import { uploadImage } from "~/utils/cloudinary.server";
 
 export async function action({ request }: ActionFunctionArgs) {
-  const formData = await request.formData();
+  const uploadHandler = composeUploadHandlers(
+    async ({ name, data }) => {
+      if (name !== "preview") {
+        return undefined;
+      }
+
+      try {
+        const uploadedImage = await uploadImage(data);
+        return (uploadedImage as UploadApiResponse).secure_url;
+      } catch (error) {
+        return null;
+      }
+    },
+    createMemoryUploadHandler({
+      maxPartSize: MAX_UPLOAD_SIZE,
+    })
+  );
+
+  const formData = await parseMultipartFormData(request, uploadHandler);
 
   const submission = parse(formData, {
     schema: CreateRecordSchema,
@@ -62,6 +89,7 @@ export default function Page() {
       </h1>
       <Form
         method="POST"
+        encType="multipart/form-data"
         {...form.props}
         className="flex flex-col gap-2 max-w-md mx-auto mt-4"
       >
@@ -89,9 +117,11 @@ export default function Page() {
           id={fields.minimalPriceUAH.id}
           errors={fields.minimalPriceUAH.errors}
         />
-        <Input
+        <textarea
           {...conform.input(fields.description)}
+          className={`${inputStyles} h-auto`}
           placeholder={fields.description.name}
+          rows={3}
         />
         <ErrorList
           id={fields.description.id}
@@ -115,10 +145,19 @@ export default function Page() {
             </div>
           ))}
         </fieldset>
+        <div className={`${inputStyles} h-auto`}>
+          <p className="text-gray-600 opacity-70 capitalize">
+            Select preview (optional)
+          </p>
+          <input
+            {...conform.input(fields.preview, { type: "file" })}
+            accept="image/png, image/jpeg"
+          />
+        </div>
         <button
           type="submit"
           disabled={isSubmitting}
-          className="bg-green-400 py-2 text-white text-center rounded disabled:bg-green-200 flex gap-1 items-center justify-center"
+          className="mt-3 bg-green-400 py-2 text-white text-center rounded disabled:bg-green-200 flex gap-1 items-center justify-center"
         >
           <IoMdSave />
           Зберегти

@@ -8,6 +8,9 @@ export async function getMarkersByQuery(query: string) {
         contains: query,
       },
     },
+    orderBy: {
+      createdAt: 'desc'
+    }
   });
 }
 

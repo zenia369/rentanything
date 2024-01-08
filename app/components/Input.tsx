@@ -4,6 +4,7 @@ interface InputProps extends HTMLAttributes<HTMLInputElement> {
   placeholder: string;
   list?: string;
   step?: number | string;
+  accept?: string;
 }
 
 interface ErrorListProps {
@@ -34,6 +35,7 @@ const Input: FC<InputProps> = ({
   className,
   list,
   step,
+  accept,
   ...props
 }) => {
   return (
@@ -43,6 +45,7 @@ const Input: FC<InputProps> = ({
       className={`${inputStyles} ${className}`}
       list={list}
       step={step}
+      accept={accept}
     />
   );
 };
