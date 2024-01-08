@@ -19,7 +19,27 @@ const OpenMarker: FC<OpenMarkerProps> = ({ marker }) => {
 
   return (
     <Modal handleClose={handleClose}>
-      <div className="">{marker.name}</div>
+      <div className="flex gap-2">
+        <img src={marker.preview!} alt={marker.name} className="flex-2 w-2/3" />
+        <div className="flex-3 w-full flex flex-col gap-2">
+          <h1 className="text-xl font-bold">Назва: {marker.name}</h1>
+          <p className="text-base">
+            Опубліковано: {new Date(marker.createdAt).toLocaleDateString()}
+          </p>
+          <p className="text-base">
+            Регіон: {marker.region}
+            {marker?.city ? `, ${marker?.city}` : ""}
+          </p>
+          <p className="mt-auto">
+            Мінімальна вартість: {marker.minimalPriceUAH} <span>грн</span>
+          </p>
+        </div>
+      </div>
+      <p className="mt-4 text-base">
+        <span className="text-lg">Опис:</span>
+        <br />
+        {marker.description}
+      </p>
     </Modal>
   );
 };

@@ -1,13 +1,14 @@
 import { Link } from "@remix-run/react";
+import { IoCreate } from "react-icons/io5";
 
 const Header = () => {
   return (
     <div className="flex items-center h-full p-2">
       <Link
         to="/new"
-        className="py-1 px-2 border bg-green-400 rounded text-white"
+        className="text-base py-1 px-2 border bg-green-400 rounded text-white flex gap-1 items-center"
       >
-        Здати в оренду
+        <IoCreate /> Здати в оренду
       </Link>
     </div>
   );

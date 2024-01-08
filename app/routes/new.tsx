@@ -2,6 +2,7 @@ import { useForm, useFieldList, conform } from "@conform-to/react";
 import { getFieldsetConstraint, parse } from "@conform-to/zod";
 import { ActionFunctionArgs, json, redirect } from "@remix-run/node";
 import { Form, useActionData } from "@remix-run/react";
+import { IoMdSave } from "react-icons/io";
 import Input, { ErrorList } from "~/components/Input";
 import useIsSubmitting from "~/hooks/useIsSubmitting";
 import { createMarker } from "~/models/map.server";
@@ -56,7 +57,9 @@ export default function Page() {
 
   return (
     <main className="container mx-auto">
-      <h1 className="mt-6">Створити оголошення</h1>
+      <h1 className="text-center mt-6 text-2xl font-bold">
+        Створити оголошення
+      </h1>
       <Form
         method="POST"
         {...form.props}
@@ -115,8 +118,9 @@ export default function Page() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="bg-green-400 py-2 text-white text-center rounded disabled:bg-green-200"
+          className="bg-green-400 py-2 text-white text-center rounded disabled:bg-green-200 flex gap-1 items-center justify-center"
         >
+          <IoMdSave />
           Зберегти
         </button>
       </Form>

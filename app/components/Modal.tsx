@@ -1,4 +1,5 @@
 import { FC, ReactNode } from "react";
+import { IoIosCloseCircleOutline } from "react-icons/io";
 
 interface ModalProps {
   children: ReactNode;
@@ -11,10 +12,10 @@ const Modal: FC<ModalProps> = ({ children, handleClose }) => {
       <div className="bg-white rounded-md p-4 relative w-3/4 h-3/4">
         <button
           type="button"
-          className="absolute top-0 right-0"
+          className="absolute top-0 right-0 text-3xl"
           onClick={handleClose}
         >
-          x
+          <IoIosCloseCircleOutline />
         </button>
         {children}
       </div>

@@ -36,7 +36,7 @@ const Sidebar = ({ markers }: SidebarProps) => {
           Знайдено {markerList.length} оголошень на всій території України
         </h3>
       )}
-      {markers.length ? (
+      {markerList.length ? (
         <ul className="mt-4 flex flex-col gap-4">
           {markerList.map((m) => (
             <li
