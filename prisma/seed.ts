@@ -6,50 +6,61 @@ async function seed() {
   const markers = [
     {
       country: "Ukraine",
-      description: "test 1",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus illo vitae repellendus explicabo assumenda? Pariatur, rem? Ut facere optio, id quo ea, soluta perferendis iusto distinctio at explicabo debitis rerum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus illo vitae repellendus explicabo assumenda? Pariatur, rem? Ut facere optio, id quo ea, soluta perferendis iusto distinctio at explicabo debitis rerum.",
       minimalPriceUAH: 1000,
       region: "Lviv Oblast",
-      name: "Test 1",
+      name: "Orci varius natoque penatibus et magnis",
+      preview: "/photo 1.jpg",
     },
     {
       country: "Ukraine",
-      description: "test 2",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus illo vitae repellendus explicabo assumenda? Pariatur, rem? Ut facere optio, id quo ea, soluta perferendis iusto distinctio at explicabo debitis rerum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus illo vitae repellendus explicabo assumenda? Pariatur, rem? Ut facere optio, id quo ea, soluta perferendis iusto distinctio at explicabo debitis rerum.",
       minimalPriceUAH: 1000,
       region: "Lviv Oblast",
-      name: "Test 2",
-      city: "test city 2",
+      name: "Nunc sed orci sit amet ligula placerat",
+      city: "test city name 2",
       latLngTuple: [49.350182287807215, 23.38330079801381],
+      preview: "/photo 2.jpg",
     },
     {
       country: "Ukraine",
-      description: "test 1",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus illo vitae repellendus explicabo assumenda? Pariatur, rem? Ut facere optio, id quo ea, soluta perferendis iusto distinctio at explicabo debitis rerum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus illo vitae repellendus explicabo assumenda? Pariatur, rem? Ut facere optio, id quo ea, soluta perferendis iusto distinctio at explicabo debitis rerum.",
       minimalPriceUAH: 1000,
       region: "Odessa Oblast",
-      name: "Test 3",
+      name: "Sed vehicula in nunc eget varius",
+      preview: "/photo 3.jpg",
     },
     {
       country: "Ukraine",
-      description: "test 2",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus illo vitae repellendus explicabo assumenda? Pariatur, rem? Ut facere optio, id quo ea, soluta perferendis iusto distinctio at explicabo debitis rerum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus illo vitae repellendus explicabo assumenda? Pariatur, rem? Ut facere optio, id quo ea, soluta perferendis iusto distinctio at explicabo debitis rerum.",
       minimalPriceUAH: 1000,
       region: "Odessa Oblast",
-      name: "Test 4",
-      city: "test city 4",
+      name: "Curabitur sodales, dolor ut consequat pellentesque",
+      city: "test city name 4",
       latLngTuple: [47.16963533760965, 30.30468751676381],
+      preview: "/photo 4.jpg",
     },
     {
       country: "Ukraine",
-      description: "test 1",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus illo vitae repellendus explicabo assumenda? Pariatur, rem? Ut facere optio, id quo ea, soluta perferendis iusto distinctio at explicabo debitis rerum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus illo vitae repellendus explicabo assumenda? Pariatur, rem? Ut facere optio, id quo ea, soluta perferendis iusto distinctio at explicabo debitis rerum.",
       minimalPriceUAH: 1000,
       region: "Vinnytsia Oblast",
-      name: "Test 5",
+      name: "Suspendisse purus neque, rutrum at semper eget",
+      preview: "/photo 5.jpg",
     },
     {
       country: "Ukraine",
-      description: "test 2",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus illo vitae repellendus explicabo assumenda? Pariatur, rem? Ut facere optio, id quo ea, soluta perferendis iusto distinctio at explicabo debitis rerum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus illo vitae repellendus explicabo assumenda? Pariatur, rem? Ut facere optio, id quo ea, soluta perferendis iusto distinctio at explicabo debitis rerum.",
       minimalPriceUAH: 1000,
       region: "Vinnytsia Oblast",
-      name: "Test 6",
-      city: "test city 6",
+      name: "Vivamus enim magna, tincidunt sed laoreet efficitur",
+      city: "test city name 6",
       latLngTuple: [48.657876846569025, 28.96435548551381],
     },
   ];
