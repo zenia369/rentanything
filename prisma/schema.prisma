@@ -15,14 +15,16 @@ model MapMarker {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  city            String
   country         String
   name            String
   description     String
-  region          String?
+  region          String
+  city            String?
+  latLngTuple     Float[]
   minimalPriceUAH Int
 
-  images Image[]
+  images  Image[]
+  preview String? @default("/default.png")
 }
 
 model Image {
@@ -30,7 +32,6 @@ model Image {
 
   url            String
   altDescription String?
-  isMain         Boolean @default(false)
 
   mapMarker   MapMarker? @relation(fields: [mapMarkerId], references: [id])
   mapMarkerId String?
