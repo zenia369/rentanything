@@ -8,10 +8,16 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
-import stylesheet from "~/tailwind.css";
+import stylesheetTailwind from "~/assets/tailwind.css";
+import stylesheetApp from "~/assets/app.css";
 
 export const links: LinksFunction = () => [
-  { rel: "stylesheet", href: stylesheet },
+  {
+    rel: "stylesheet",
+    href: "https://unpkg.com/leaflet@1.8.0/dist/leaflet.css",
+  },
+  { rel: "stylesheet", href: stylesheetTailwind },
+  { rel: "stylesheet", href: stylesheetApp },
 ];
 
 export default function App() {
