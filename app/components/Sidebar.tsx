@@ -28,11 +28,13 @@ const Sidebar = ({ markers }: SidebarProps) => {
     <div className="px-5 pb-5">
       {region ? (
         <h3>
-          Знайдено {markers.length} оголошень на обраній території:{" "}
+          Знайдено {markerList.length} оголошень на обраній території:{" "}
           {region.replace("Oblast", "")}
         </h3>
       ) : (
-        <h3>Знайдено {markers.length} оголошень на всій території України</h3>
+        <h3>
+          Знайдено {markerList.length} оголошень на всій території України
+        </h3>
       )}
       {markers.length ? (
         <ul className="mt-4 flex flex-col gap-4">
