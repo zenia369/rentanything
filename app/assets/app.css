@@ -1,0 +1,26 @@
+body {
+  font-family: system-ui, sans-serif;
+  line-height: 1.8;
+}
+
+.page-layout {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "main asaid";
+  grid-template-columns: 1fr 0.5fr;
+  grid-template-rows: 100px 1fr;
+  height: 100vh;
+}
+
+.page-layout-in-header {
+  grid-area: header;
+}
+
+.page-layout-in-main {
+  grid-area: main;
+}
+
+.page-layout-in-asaid {
+  grid-area: asaid;
+}
