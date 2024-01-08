@@ -20,8 +20,8 @@ const OpenMarker: FC<OpenMarkerProps> = ({ marker }) => {
   return (
     <Modal handleClose={handleClose}>
       <div className="flex gap-2">
-        <img src={marker.preview!} alt={marker.name} className="flex-2 w-2/3" />
-        <div className="flex-3 w-full flex flex-col gap-2">
+        <img src={marker.preview!} alt={marker.name} className="w-1/2" />
+        <div className="flex flex-col gap-1">
           <h1 className="text-xl font-bold">Назва: {marker.name}</h1>
           <p className="text-base">
             Опубліковано: {new Date(marker.createdAt).toLocaleDateString()}

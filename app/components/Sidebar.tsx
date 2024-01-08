@@ -50,20 +50,32 @@ const Sidebar = ({ markers }: SidebarProps) => {
                 className="text-left"
                 onClick={handleClick(m.id)}
               >
-                <img src={m.preview!} alt={m.name} className="rounded-t-lg" />
-                <div className="p-4">
+                <img
+                  src={m.preview!}
+                  alt={m.name}
+                  className="rounded-t-lg w-full"
+                />
+                <div className="p-4 flex flex-col gap-2">
                   <div className="flex items-center justify-between">
-                    <h5>{m.name}</h5>
+                    <h5 className="text-2xl font-bold">
+                      {m.name.length > 50
+                        ? `${m.name.slice(0, 40)}...`
+                        : m.name}
+                    </h5>
                     <span>{new Date(m.createdAt).toLocaleDateString()}</span>
                   </div>
-                  <p>{m.description}</p>
-                  <div>
+                  <p className="text-base">
+                    {m.description.length > 100
+                      ? `${m.description.slice(0, 100)}...`
+                      : m.description}
+                  </p>
+                  <div className="bg-gray-200 p-1 rounded text-base">
                     <p>Мінімальна плата</p>
                     <p>
                       {m.minimalPriceUAH} <span>грн</span>
                     </p>
                   </div>
-                  <div>
+                  <div className="bg-gray-200 p-1 rounded text-base">
                     <p>
                       {m.region}
                       {m?.city ? `, ${m?.city}` : ""}
